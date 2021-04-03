@@ -1,8 +1,7 @@
 const shell = require("shelljs");
 require("dotenv").config();
 if (
-  shell.exec(`nginx -s stop && nginx  -c ${process.env.NGINX_CONFIG_PATH}`)
-    .code !== 0
+  shell.exec(`nginx -s reload  -c ${process.env.NGINX_CONFIG_PATH}`).code !== 0
 ) {
   shell.echo("Nginx failed to start");
   shell.exit(1);
